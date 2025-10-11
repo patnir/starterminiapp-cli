@@ -1,0 +1,26 @@
+{
+  "name": "starterminiapp",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "starterminiapp": "bin/index.mjs"
+  },
+  "description": "CLI to scaffold a Base + Farcaster mini app starter (starterminiapp.com)",
+  "author": "Rahul Patni",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patnir/starterminiapp-cli.git"
+  },
+  "keywords": [
+    "base",
+    "farcaster",
+    "miniapp",
+    "starter",
+    "cli",
+    "starterminiapp"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
