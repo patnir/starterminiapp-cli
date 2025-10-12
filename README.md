@@ -1,8 +1,10 @@
 # starterminiapp
 
+[![npm version](https://badge.fury.io/js/starterminiapp.svg)](https://www.npmjs.com/package/starterminiapp)
+
 A zero-config CLI to bootstrap a **Base + Farcaster Mini App** in seconds.
 
-Built for developers who want to get started fast using the [`starterminiapp`](https://github.com/patnir/starterminiapp) template.
+Built for developers who want to get started fast using the [`starterminiapp`](https://github.com/patnir/starterminiapp) template. Available on [npm](https://www.npmjs.com/package/starterminiapp).
 
 ---
 
