@@ -84,7 +84,7 @@ npm publish --access public
 That automatically updates what users get when they run:
 
 ```bash
-npx starterminiapp my-app
+npx starterminiapp my-mini-app
 ```
 
 ---
@@ -100,7 +100,7 @@ npx starterminiapp@latest test-app
 You can also install a specific version explicitly:
 
 ```bash
-npx starterminiapp@1.1.0 my-app
+npx starterminiapp@1.1.0 my-mini-app
 ```
 
 ---
@@ -109,7 +109,7 @@ npx starterminiapp@1.1.0 my-app
 
 | Action         | Command                              |
 | -------------- | ------------------------------------ |
-| Create new app | `npx starterminiapp my-app`          |
+| Create new app | `npx starterminiapp my-mini-app`          |
 | Version bump   | `npm version patch`                  |
 | Publish update | `npm publish --access public`        |
 | Test latest    | `npx starterminiapp@latest test-app` |

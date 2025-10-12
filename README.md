@@ -9,7 +9,7 @@ Built for developers who want to get started fast using the [`starterminiapp`](h
 ## 🚀 Quick Start
 
 ```bash
-npx starterminiapp my-app
+npx starterminiapp my-mini-app
 ````
 
 That command will:
@@ -24,7 +24,7 @@ That command will:
 Then, simply:
 
 ```bash
-cd my-app
+cd my-mini-app
 npm run dev
 ```
 
