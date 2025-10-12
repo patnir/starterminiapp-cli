@@ -1,6 +1,6 @@
 {
   "name": "starterminiapp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "bin": {
     "starterminiapp": "bin/index.mjs"
