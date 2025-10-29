@@ -21,7 +21,16 @@ That command will:
 3. Rename the package to your folder name
 4. Initialize a fresh git repo
 5. Install dependencies automatically
-6. Print your next steps
+6. **Optionally deploy to Vercel** with one command
+7. Print your next steps
+
+After setup, you'll be prompted:
+
+```
+? Deploy to Vercel now? (y/n)
+```
+
+Say **yes** to deploy immediately, or **no** to deploy later.
 
 Then, simply:
 
@@ -41,9 +50,33 @@ Under the hood, this CLI:
 * Updates the `package.json` name and version
 * Re-initializes git (`git init`, `git commit`)
 * Installs dependencies via your preferred package manager (`npm`, `yarn`, or `pnpm`)
-* Prints friendly “next steps” instructions
+* Prompts you to deploy to Vercel (optional, skip if you want)
+* Prints friendly "next steps" instructions
 
-You can open [bin/index.mjs](bin/index.mjs) to see the full logic — it’s less than 100 lines and dependency-free.
+You can open [bin/index.mjs](bin/index.mjs) to see the full logic — it's less than 100 lines and dependency-free.
+
+---
+
+## 🚀 Deploying
+
+### During Setup
+After running `npx starterminiapp my-app`, you'll be asked if you want to deploy immediately. This runs `npm run deploy` which deploys to Vercel with pre-configured settings from `vercel.json`.
+
+### Deploy Later
+If you skip deployment during setup, you can deploy anytime:
+
+```bash
+cd my-mini-app
+npm run deploy
+```
+
+Or use the Vercel CLI directly:
+
+```bash
+npx vercel --yes --prod
+```
+
+**Note:** You'll be prompted to authenticate with Vercel on your first deployment.
 
 ---
 
