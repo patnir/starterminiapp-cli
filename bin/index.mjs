@@ -2,11 +2,20 @@
 import { execSync } from "node:child_process";
 import { existsSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { basename, resolve } from "node:path";
+import { stdin as input, stdout as output } from "node:process";
+import * as readline from "node:readline/promises";
 
 const REPO = "https://github.com/patnir/starterminiapp.git";
 
 function run(cmd, opts = {}) {
   execSync(cmd, { stdio: "inherit", ...opts });
+}
+
+async function prompt(question) {
+  const rl = readline.createInterface({ input, output });
+  const answer = await rl.question(question);
+  rl.close();
+  return answer.trim().toLowerCase();
 }
 
 function detectPM() {
@@ -25,7 +34,7 @@ function updatePkgName(dir, name) {
   writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 }
 
-function main() {
+async function main() {
   const target = process.argv[2];
   if (!target) {
     console.log("Usage: npx starterminiapp <directory>");
@@ -54,7 +63,33 @@ function main() {
   console.log(`> Installing dependencies with ${pm}...`);
   try { run(`${pm} install`, { cwd: dir }); } catch {}
 
-  console.log(`\n✅ Done! Next steps:\n`);
+  console.log(`\n✅ Setup complete!\n`);
+
+  // Prompt for Vercel deployment
+  const answer = await prompt("? Deploy to Vercel now? (y/n) ");
+  
+  if (answer === "y" || answer === "yes") {
+    console.log("\n🚀 Deploying to Vercel...");
+    console.log("   (You'll be prompted to authenticate if this is your first time)\n");
+    try {
+      run(`${pm} run deploy`, { cwd: dir });
+      console.log("\n✨ Deployment complete!");
+    } catch (err) {
+      console.log("\n⚠️  Deployment failed. You can try again by running:");
+      console.log(`  cd ${target}`);
+      console.log(`  ${pm} run deploy`);
+      console.log("\n   Or deploy with the Vercel CLI directly:");
+      console.log(`  npx vercel --yes --prod`);
+    }
+  } else {
+    console.log("\n📦 To deploy to Vercel later, run:");
+    console.log(`  cd ${target}`);
+    console.log(`  ${pm} run deploy`);
+    console.log("\n   (You'll be prompted to authenticate on your first deployment)");
+    console.log("   Or use: npx vercel --yes --prod");
+  }
+
+  console.log(`\n✅ Next steps:\n`);
   console.log(`  cd ${target}`);
   console.log(`  ${pm} run dev\n`);
   console.log("Happy hacking 👾");
