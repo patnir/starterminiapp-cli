@@ -74,6 +74,10 @@ async function main() {
     try {
       run(`${pm} run deploy`, { cwd: dir });
       console.log("\n✨ Deployment complete!");
+      console.log("\nℹ️  Note: If you're on a Vercel Pro/Team plan and your deployment URL requires login:");
+      console.log("   • Add a custom domain (automatically public), or");
+      console.log("   • Disable 'Standard Protection' in Project Settings");
+      console.log("   Learn more: https://vercel.com/docs/deployment-protection");
     } catch (err) {
       console.log("\n⚠️  Deployment failed. You can try again by running:");
       console.log(`  cd ${target}`);
