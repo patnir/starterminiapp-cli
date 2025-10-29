@@ -5,6 +5,10 @@
   "bin": {
     "starterminiapp": "bin/index.mjs"
   },
+  "files": [
+    "bin/",
+    "README.md"
+  ],
   "description": "CLI to scaffold a Base + Farcaster mini app starter (starterminiapp.com)",
   "author": "Rahul Patni",
   "license": "MIT",
